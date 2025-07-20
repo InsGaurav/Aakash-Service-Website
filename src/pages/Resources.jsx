@@ -50,7 +50,7 @@ const Resources = () => {
   }, []);
   return (
     <>
-    <Navbar />
+    
     <section className="industry-section">
       <div className="industry-container">
         <h2 className="industry-title">Industry We Service Provide</h2>
@@ -120,52 +120,7 @@ const Resources = () => {
         </div>
       </section>
       
-      <footer className="footer">
-        <div className="footer-container">
-          <div className="footer-grid">
-            <div>
-              <h3 className="footer-heading-lg">Ready to get started?</h3>
-              <button className="footer-cta-button">Get started</button>
-            </div>
-            <div>
-              <h3 className="footer-heading">Services</h3>
-              <ul className="footer-links">
-                <li><a href="#">Email Marketing</a></li>
-                <li><a href="#">Campaigns</a></li>
-                <li><a href="#">Branding</a></li>
-                <li><a href="#">Offline</a></li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="footer-heading">About</h3>
-              <ul className="footer-links">
-                <li><a href="#">Our Story</a></li>
-                <li><a href="#">Benefits</a></li>
-                <li><a href="#">Team</a></li>
-                <li><a href="#">Careers</a></li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="footer-heading">Help</h3>
-              <ul className="footer-links">
-                <li><a href="#">FAQs</a></li>
-                <li><a href="#">Contact Us</a></li>
-              </ul>
-            </div>
-          </div>
-          <div className="footer-bottom">
-            <div className="footer-legal">
-              <a href="#">Terms & Conditions</a>
-              <a href="#">Privacy Policy</a>
-            </div>
-            <div className="footer-social">
-              <a href="#"><img src="../assets/images/img_path.svg" alt="Twitter" /></a>
-              <a href="#"><img src="../assets/images/img_path_white_a700.svg" alt="Facebook" /></a>
-              <a href="#"><img src="../assets/images/img_004instagram.svg" alt="Instagram" /></a>
-            </div>
-          </div>
-        </div>
-      </footer>
+     
 
       </>
 

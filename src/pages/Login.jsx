@@ -1,43 +1,98 @@
-// src/pages/Login.jsx
-import React, { useState } from 'react';
-import {login} from "../utils/api"
-import { useNavigate } from 'react-router-dom';
-import '../styles/login.css'; // Assuming you have a CSS file for styling
+import React, { useState } from "react";
+import { useNavigate, useLocation, Link } from "react-router-dom";
+import { login } from "../utils/api";
+import "../styles/login.css";
 
 const Login = () => {
   const navigate = useNavigate();
-  const [form, setForm] = useState({ email: '', password: '' });
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
 
-  const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
+  const [form, setForm] = useState({ email: "", password: "" });
+  const [loading, setLoading] = useState(false);
+
+  const handleChange = (e) =>
+    setForm((f) => ({ ...f, [e.target.name]: e.target.value }));
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const res = await login(form);
-    if (res.token) {
-      alert("Login successful!");
-      localStorage.setItem('token', res.token); // Store the token after successful login
-      navigate('/profile'); // Redirect user to profile page
-    } else {
-      alert(res.msg || "Login failed");
+    setLoading(true);
+    try {
+      const res = await login(form);
+      console.log("Login response:", res);
+
+      if (res.token) {
+        // Store token and user details in localStorage
+        localStorage.setItem("token", res.token);
+        localStorage.setItem("user", JSON.stringify(res.user));
+        console.log("User stored in localStorage:", res.user);
+        console.log("Token stored in localStorage:", res.token);
+ // assuming res.user contains name/email
+        
+        
+        // Redirect to intended page
+        navigate(from, { replace: true, state: { user: res.user } });
+
+      } else {
+        alert(res.msg || "Login failed");
+      }
+    } catch (err) {
+      console.error("Login error:", err);
+      alert("An error occurred. Please try again.");
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
     <div className="login-container">
       <form onSubmit={handleSubmit} className="login-form">
-        <h2>Login</h2>
-        <input name="email" type="email" placeholder="Email" value={form.email} onChange={handleChange} />
-        <input name="password" type="password" placeholder="Password" value={form.password} onChange={handleChange} />
-        <button type="submit">Sign In</button>
-        <div>or</div>
-        <a href="http://localhost:5000/api/auth/google">Sign up with Google</a>
-        <div>Don't have an account? <a href="/signup">Sign Up</a></div>
-        <div>By signing in, you agree to our <a href="/terms">Terms of Service</a> and <a href="/privacy">Privacy Policy</a>.</div>
+        <h2>Sign In</h2>
 
+        <label>
+          Email
+          <input
+            name="email"
+            type="email"
+            placeholder="you@example.com"
+            value={form.email}
+            onChange={handleChange}
+            required
+          />
+        </label>
 
-        
+        <label>
+          Password
+          <input
+            name="password"
+            type="password"
+            placeholder="••••••••"
+            value={form.password}
+            onChange={handleChange}
+            required
+          />
+        </label>
+
+        <button type="submit" disabled={loading}>
+          {loading ? "Signing In…" : "Sign In"}
+        </button>
+
+        <div className="alt-auth">
+          <span>or</span>
+          <a href={`${import.meta.env.VITE_API_URL}/auth/google`}>
+            Sign in with Google
+          </a>
+        </div>
+
+        <p className="signup-prompt">
+          Don’t have an account? <Link to="/signup">Sign Up</Link>
+        </p>
+
+        <p className="legal">
+          By signing in, you agree to our{" "}
+          <Link to="/terms">Terms of Service</Link> and{" "}
+          <Link to="/privacy">Privacy Policy</Link>.
+        </p>
       </form>
     </div>
   );

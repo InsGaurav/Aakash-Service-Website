@@ -10,11 +10,10 @@ import partner2 from "../assets/images/img_4_2_63x210.png";
 import partner3 from "../assets/images/img_4_2_1.png";
 
 import "../styles/Home.css";
-
 function Home() {
   return (
     <div className="home-wrapper">
-      <Navbar />
+     
 
       <section className="hero-section">
         <img src={bgShape} alt="Background Shape" className="bg-shape" />
@@ -45,7 +44,7 @@ function Home() {
         <div className="bottom-fade"></div>
       </section>
 
-      <Footer />
+      
     </div>
   );
 }

@@ -1,8 +1,30 @@
-// src/components/Navbar.jsx
-import { Link } from "react-router-dom";
+import { useState, useRef, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import "./../styles/Navbar.css";
 
-function Navbar() {
+function Navbar({ user, setUser }) {
+  const navigate = useNavigate();
+  const [showDropdown, setShowDropdown] = useState(false);
+  const dropdownRef = useRef();
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setShowDropdown(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem("user");
+    setUser(null);
+    navigate("/");
+  };
+
+  const displayName = user?.username || user?.name || user?.email || "Guest";
+
   return (
     <nav className="navbar">
       <div className="navbar-container">
@@ -16,17 +38,43 @@ function Navbar() {
           <Link to="/services">Services</Link>
           <Link to="/features">Feature</Link>
           <Link to="/resources">Resource</Link>
-          {/* <Link to="/career">Career</Link> */}
-          <Link to="/signup">Sign Up</Link>
-          <Link to="/login">Login</Link>
+          <Link to="/pricing">Pricing</Link>
+          <Link to="/projects">Projects</Link>
         </div>
 
-        <button className="navbar-button">
-          <div className="navbar-icon">
-            <img src="/assets/images/img_vector.svg" alt="Arrow Icon" />
-          </div>
-          <span>Get In Touch</span>
-        </button>
+        <div className="dropdown-wrapper" ref={dropdownRef}>
+          <button
+            className="navbar-button"
+            onClick={() => setShowDropdown(!showDropdown)}
+          >
+            <div className="navbar-icon">
+              <img src="/assets/images/img_vector.svg" alt="Arrow Icon" />
+            </div>
+            <span>Hi, {displayName}</span>
+          </button>
+
+          {showDropdown && (
+            <div className="dropdown-menu">
+              {user ? (
+                <>
+                  <Link to="/profile">Profile</Link>
+                  <Link to="/dashboard">Dashboard</Link>
+                  <Link to="/change-password">Change Password</Link>
+                  <Link to="/contact">Contact Us</Link>
+                  <Link to="/help">Help Center</Link>
+                  <button onClick={handleLogout}>Logout</button>
+                </>
+              ) : (
+                <>
+                  <Link to="/login">Login</Link>
+                  <Link to="/signup">Sign Up</Link>
+                  <Link to="/contact">Contact Us</Link>
+                  <Link to="/help">Help Center</Link>
+                </>
+              )}
+            </div>
+          )}
+        </div>
       </div>
     </nav>
   );

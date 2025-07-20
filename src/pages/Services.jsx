@@ -18,8 +18,7 @@ function Services() {
 
   return (
     <div className="service-wrapper">
-      <Navbar />
-
+      
       <section className="services-section">
         <div className="services-container">
           <div className="services-header">
@@ -81,7 +80,7 @@ function Services() {
 </section>
 
 
-      <Footer />
+      
     </div>
   );
 }

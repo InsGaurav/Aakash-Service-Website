@@ -11,7 +11,7 @@ import bgImage from "../assets/images/img_.png"; // Add at the top with other im
 function Feature() {
   return (
     <div className="feature-wrapper">
-      <Navbar />
+      
 
       <section className="feature-section">
         <div className="feature-container">
@@ -79,7 +79,7 @@ function Feature() {
 </section>
 
 
-      <Footer />
+      
     </div>
   );
 }
