@@ -8,9 +8,11 @@ import Pricing from "./pages/Pricing";
 import Services from "./pages/Services";
 import Resources from "./pages/Resources";
 import AboutUs from "./pages/AboutUs";
+import Career from "./pages/Career";
 import Signup from "./pages/sign-up";
 import Login from "./pages/Login";
 import Profile from "./pages/Profile";
+
 import Project from "./pages/Projects"; // Assuming you have a Project page
 import Contact from "./pages/Contact"; // Assuming you have a Contact page
  
@@ -33,6 +35,7 @@ function App() {
           <Route path="/projects" element={<Project />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/about-us" element={<AboutUs />} />
+          <Route path="/career" element={<Career />} />
           <Route path="/signup" element={<Signup setUser={setUser} />} />
           <Route path="/login" element={<Login setUser={setUser} />} />
           <Route

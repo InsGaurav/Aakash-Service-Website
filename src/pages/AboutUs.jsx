@@ -1,9 +1,7 @@
 // src/App.jsx
-import React, { useState ,useEffect } from "react";
+import React, { useEffect } from "react";
 import "../styles/AboutUs.css";
 import teamMembers  from "../data/teamData";
-import FaqSection from "../hooks/AboutHooks/Faq";
-// import  faqItems  from "../data/AboutUsFaq";
 import FaqSec from "../hooks/AboutHooks/Faq";
 
 
@@ -11,11 +9,7 @@ import FaqSec from "../hooks/AboutHooks/Faq";
 
 
 const AboutUs = () => {
-  const [activeIndex, setActiveIndex] = useState(null);
-
-  const toggleFAQ = (index) => {
-    setActiveIndex(activeIndex === index ? null : index);
-  };
+  
 
   useEffect(() => {
     const observerOptions = {
@@ -72,7 +66,7 @@ const AboutUs = () => {
   return (
     <div>
       {/* Hero Section */}
-      <div className="hero-section">
+      <div className="hero-section-about">
         <div className="hero-content">
           <h1 className="hero-title">About Us</h1>
           <p className="hero-description">
@@ -95,7 +89,7 @@ const AboutUs = () => {
             </p>
           </div>
           <div className="values-image">
-            <img src="/public/rectangle-4422.svg" alt="Our Values" />
+            <img src="/AboutAsset/rectangle-4422.svg" alt="Our Values" />
           </div>
         </div>
       </section>
@@ -135,7 +129,7 @@ const AboutUs = () => {
       {/* Partners Section */}
       <section className="partners-section">
         <h2 className="partners-title">Company That Work With Us</h2>
-        <img src="/public/logos.svg" alt="Company Logos" className="partners-logos" />
+        <img src="/AboutAsset/logos.svg" alt="Company Logos" className="partners-logos" />
       </section>
 
       {/* About Section */}
@@ -164,7 +158,7 @@ const AboutUs = () => {
           </div>
           <div className="about-image">
             <img
-              src="/public/f93d7b003ee0abb7797acec0d99adae6-1.png"
+              src="/AboutAsset/f93d7b003ee0abb7797acec0d99adae6-1.png"
               alt="Web development illustration"
             />
           </div>
@@ -175,7 +169,7 @@ const AboutUs = () => {
       <section className="vision-section">
         <div className="vision-content">
           <div className="vision-image">
-            <img src="/public/rectangle-4422-1.svg" alt="Vision illustration" />
+            <img src="/AboutAsset/rectangle-4422-1.svg" alt="Vision illustration" />
           </div>
           <div className="vision-text">
             <h2 className="vision-title">Our Visions</h2>
@@ -229,29 +223,7 @@ const AboutUs = () => {
 
       {/* FAQ Section */}
       <section className="faq-section">
-        {/* <div className="faq-header">
-          <div className="faq-title-section">
-            <h2 className="faq-title">FAQ's</h2>
-          </div>
-          <div className="faq-description">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          </div>
-        </div>
-        <div className="faq-accordion">
-          {faqItems.map((item, index) => (
-            <div className="faq-item" key={item.id}>
-              <button className="faq-question" onClick={() => toggleFAQ(index)}>
-                <h3>{item.question}</h3>
-                <span className="faq-toggle">{activeIndex === index ? "−" : "+"}</span>
-              </button>
-              {item.answer && activeIndex === index && (
-                <div className="faq-answer">
-                  <p>{item.answer}</p>
-                </div>
-              )}
-            </div>
-          ))}
-        </div> */}
+        
         <FaqSec />
       </section>
     </div>

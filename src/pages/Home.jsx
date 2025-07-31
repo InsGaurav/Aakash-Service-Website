@@ -9,7 +9,11 @@ import partner1 from "../assets/images/img_4_2.png";
 import partner2 from "../assets/images/img_4_2_63x210.png";
 import partner3 from "../assets/images/img_4_2_1.png";
 
+
 import "../styles/Home.css";
+import Feature from "./Feature";
+import Services from "./Services";
+import Resources from "./Resources";
 function Home() {
   return (
     <div className="home-wrapper">
@@ -43,6 +47,13 @@ function Home() {
 
         <div className="bottom-fade"></div>
       </section>
+
+
+      <Feature />
+      <Services />
+      <Resources />
+
+
 
       
     </div>

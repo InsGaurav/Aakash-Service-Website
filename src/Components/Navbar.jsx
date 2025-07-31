@@ -35,11 +35,12 @@ function Navbar({ user, setUser }) {
 
         <div className="navbar-links">
           <Link to="/">Home</Link>
-          <Link to="/services">Services</Link>
-          <Link to="/features">Feature</Link>
-          <Link to="/resources">Resource</Link>
-          <Link to="/pricing">Pricing</Link>
+          <Link to="/about-us">Services</Link>
           <Link to="/projects">Projects</Link>
+          <Link to="/career">Career</Link>
+          <Link to="/contact">Contact</Link>
+          <Link to="/pricing">Pricing</Link>
+          
         </div>
 
         <div className="dropdown-wrapper" ref={dropdownRef}>

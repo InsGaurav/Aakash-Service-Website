@@ -255,7 +255,7 @@ body {
 /* Portfolio Hero Section */
 .portfolio-hero {
     width: 100%;
-    background-image: url('../assets/ProjectAsset/subtract.png');
+    background-image: url('ProjectAsset/subtract.png');
     background-size: cover;
     background-position: center;
     border-radius: 10px;

@@ -1,19 +1,17 @@
-import React, { useState } from "react";
+import React from "react";
 import "../styles/Contact.css"; // adjust the path if needed
-import faqData from "../data/Faq"; // ✅ dynamic FAQ data
+
 import FAQSection from "../hooks/Contact/FaqSection";
 
 const ContactPage = () => {
-  const [openFaq, setOpenFaq] = useState(null);
+  
 
-  const toggleFaq = (index) => {
-    setOpenFaq(openFaq === index ? null : index);
-  };
+ 
 
   return (
     <div className="app">
       {/* Hero Section */}
-      <section className="hero-section">
+      <section className="hero-section1">
         <div className="hero-content">
           <h1 className="hero-title">Contact Us</h1>
           <p className="hero-description">

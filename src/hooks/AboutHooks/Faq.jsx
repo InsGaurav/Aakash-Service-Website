@@ -1,52 +1,54 @@
-// src/hooks/AboutUs/FaqSection.jsx
 import React, { useState } from "react";
-import faqItems from "../../data/AboutUsFaq"; // Ensure each item has a unique 'id'
+import faqData from "../../data/AboutUsFaq";
 import "../../styles/AboutUs.css";
 
-const FaqSection = () => {
-  const [activeIndex, setActiveIndex] = useState(null);
+const FAQSection = () => {
+  const [openFaq, setOpenFaq] = useState(null);
 
-  const toggleFAQ = (index) => {
-    setActiveIndex(prevIndex => (prevIndex === index ? null : index));
+  const toggleFaq = (index) => {
+    setOpenFaq(openFaq === index ? null : index);
   };
 
   return (
-    <section className="faq-section">
+    <div className="faq-section">
       <div className="faq-header">
-        <div className="faq-title-section">
-          <h2 className="faq-title">FAQ's</h2>
-        </div>
-        <div className="faq-description">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        </div>
+        <h2 className="faq-title">FAQ's</h2>
+        <p className="faq-description">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Faucibus in
+          libero risus semper habitant arcu eget. Et integer facilisi eget.
+        </p>
       </div>
 
       <div className="faq-accordion">
-        {faqItems.map((item, index) => (
-          <div className="faq-item" key={item.id || index}>
-            <button
-              className="faq-question"
-              onClick={() => toggleFAQ(index)}
-              aria-expanded={activeIndex === index}
-              aria-controls={`faq-answer-${index}`}
-            >
-              <h3>{item.question}</h3>
-              <span className={`faq-toggle ${activeIndex === index ? "active" : ""}`}>
-                {activeIndex === index ? "−" : "+"}
-              </span>
+        {faqData.map((faq, index) => (
+          <div
+            key={index}
+            className={`faq-item ${openFaq === index ? "active" : ""}`}
+          >
+            <button className="faq-question" onClick={() => toggleFaq(index)}>
+              <span>{faq.question}</span>
+              <svg
+                className="faq-icon"
+                width="40"
+                height="40"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
+                <path d="m9 18 6-6-6-6" />
+              </svg>
             </button>
-
-            <div
-              id={`faq-answer-${index}`}
-              className={`faq-answer ${activeIndex === index ? "active" : ""}`}
-            >
-              <p>{item.answer}</p>
-            </div>
+            {openFaq === index && (
+              <div className="faq-answer">
+                <p>{faq.answer}</p>
+              </div>
+            )}
           </div>
         ))}
       </div>
-    </section>
+    </div>
   );
 };
 
-export default FaqSection;
+export default FAQSection;

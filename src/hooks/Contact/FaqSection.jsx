@@ -39,9 +39,11 @@ const FAQSection = () => {
                 <path d="m9 18 6-6-6-6" />
               </svg>
             </button>
-            <div className="faq-answer">
-              <p>{faq.answer}</p>
-            </div>
+            {openFaq === index && (
+              <div className="faq-answer">
+                <p>{faq.answer}</p>
+              </div>
+            )}
           </div>
         ))}
       </div>

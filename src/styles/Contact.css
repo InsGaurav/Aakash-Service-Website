@@ -13,6 +13,8 @@ body {
 }
 
 .app {
+    display: flex;
+    flex-direction: column;
     width: 100%;
     max-width: 1440px;
     margin: 0 auto;
@@ -20,7 +22,7 @@ body {
 
 
 /* Hero Section */
-.hero-section {
+.hero-section1 {
     width: 100%;
     border-radius: 10px;
     overflow: hidden;
@@ -297,7 +299,8 @@ body {
 }
 
 .faq-item.active .faq-answer {
-    max-height: 200px;
+    display:block;
+    max-height: 500px;
     padding-top: 40px;
 }
 
@@ -315,23 +318,7 @@ body {
 
 
 /* Responsive Design */
-@media (max-width: 1200px) {
-    .footer-section {
-        padding: 60px 40px;
-    }
-    
-    .footer-content {
-        gap: 80px;
-    }
-    
-    .services-content {
-        gap: 50px;
-    }
-    
-    .service-cards {
-        width: 100%;
-    }
-}
+
 
 @media (max-width: 768px) {
     .navigation {
@@ -345,20 +332,6 @@ body {
         justify-content: center;
     }
     
-    .services-content {
-        flex-direction: column;
-        gap: 30px;
-    }
-    
-    .services-description {
-        min-width: auto;
-        padding-left: 0;
-    }
-    
-    .service-cards {
-        width: 100%;
-        justify-content: center;
-    }
     
     .hero-content {
         padding: 80px 40px;

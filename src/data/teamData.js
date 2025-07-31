@@ -3,28 +3,28 @@ const teamMembers = [
     {
         name: "Orlando Diggs",
         role: "Customer Success",
-        image: "public/AboutAsset/image.png",
+        image: "/AboutAsset/image.png",
         socialIcons: [
-            { src: "public/AboutAsset/social-icon.svg", alt: "Social icon" },
-            { src: "public/AboutAsset/group.png", alt: "Social media" }
+            { src: "/AboutAsset/social-icon.svg", alt: "Social icon" },
+            { src: "/AboutAsset/group.png", alt: "Social media" }
         ]
     },
     {
         name: "Olivia Rhye",
         role: "Founder & CEO",
-        image: "public/AboutAsset/image-1.png",
+        image: "/AboutAsset/image-1.png",
         socialIcons: [
-            { src: "public/AboutAsset/social-icon.svg", alt: "Social icon" },
-            { src: "public/AboutAsset/group-1.png", alt: "Social media" }
+            { src: "/AboutAsset/social-icon.svg", alt: "Social icon" },
+            { src: "/AboutAsset/group-1.png", alt: "Social media" }
         ]
     },
     {
         name: "Phoenix Baker",
         role: "Engineering Manager",
-        image: "public/AboutAsset/image-2.png",
+        image: "/AboutAsset/image-2.png",
         socialIcons: [
-            { src: "public/AboutAsset/social-icon.svg", alt: "Social icon" },
-            { src: "public/AboutAsset/group-2.png", alt: "Social media" }
+            { src: "/AboutAsset/social-icon.svg", alt: "Social icon" },
+            { src: "/AboutAsset/group-2.png", alt: "Social media" }
         ]
     },
     {
